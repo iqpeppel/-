@@ -1,5 +1,4 @@
 package com.sky.mapper;
-
 import com.github.pagehelper.Page;
 import com.sky.annotation.AutoFile;
 import com.sky.dto.DishPageQueryDTO;
@@ -9,6 +8,8 @@ import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface DishMapper {
@@ -41,4 +42,32 @@ public interface DishMapper {
  */
     @Delete("delete  from  dish  where  id  = #{id}")
     void deleteById(Long id);
+
+    /*
+    根据菜品集合批量删除菜品
+     */
+    void deleteByIds(List<Long> ids);
+/*
+根据id修改菜品
+ */
+
+    @AutoFile(value = OperationType.UPDATE)
+    void update(Dish dish);
+/*
+根据categoryId 和 status查询菜品
+ */
+
+    List<Dish> list(Dish dish);
+/*
+根据categoryId查询菜品
+ */
+    @Select("select  * from  dish  where  category_id  = #{categoryId}")
+    List<Dish> getBycategoryId(Long categoryId);
+    /**
+     * 根据套餐id查询菜品
+     * @param setmealId
+     * @return
+     */
+    @Select("select a.* from dish a left join setmeal_dish b on a.id = b.dish_id where b.setmeal_id = #{setmealId}")
+    List<Dish> getBySetmealId(Long setmealId);
 }

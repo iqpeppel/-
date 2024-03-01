@@ -7,7 +7,14 @@ sky:
     username: root
     password: 123123
   alioss:
-    endpoint: https://oss-cn-shanghai.aliyuncs.com
-    access-key-id: LTAI5tETyCZy1Q5iXixiEu8E
-    access-key-secret: uHHOet7rzAmo8qjokkAsR1lRlVfFv9
-    bucket-name: ecust-web-jwq
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    accessKeyId: LTAI5tETyCZy1Q5iXixiEu8E
+    accessKeySecret: uHHOet7rzAmo8qjokkAsR1lRlVfFv9
+    bucketName: ecust-web-jwq
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+  wechat:
+    appid: wx2c12f4a46f5dfd75
+    secret: 70e289a3bb3a220ab47780a7c426f46e
